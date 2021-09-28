@@ -49,15 +49,6 @@ def main_loop():
         print("")
 
 
-def mongo_connect(url):
-    try:
-        conn = pymongo.MongoClient(url)
-        print("Mongo is connected")
-        return conn
-    except pymongo.errors.ConnectionFailure as e:
-        print("Could not connect to MongoDB: %s") % e
-
-
 conn = mongo_connect(MONGO_URI)
 coll = conn[DATABASE][COLLECTION]
 main_loop()
